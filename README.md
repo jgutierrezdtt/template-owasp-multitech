@@ -1,44 +1,64 @@
-# Paso 0. Introduccion al tutorial OWASP Multi-Stack Secure Coding
+# OWASP Multi-Stack Secure Coding — Tutorial interactivo
 
-Bienvenido al tutorial multitecnologia de secure coding.
+Tutorial de secure coding con **30 pasos** sobre las vulnerabilidades mas frecuentes del OWASP Top 10, en cuatro tecnologias reales: Python/FastAPI, Java/Spring Boot, Go/net-http y TypeScript/NestJS.
 
-## Que vas a practicar
+## Como empezar
 
-Este repositorio funciona como template de formacion. El codigo fuente empieza en estado vulnerable y cada paso te pide aplicar una mitigacion concreta en un archivo real. Cuando haces push, GitHub Actions valida el cambio y reemplaza este README por el siguiente paso.
+1. Haz clic en **Use this template** → **Create a new repository** (en tu cuenta personal).
+2. En tu repositorio nuevo, ve a la pestana **Actions** y ejecuta el workflow **Start Tutorial**.
+3. Lee el paso actual en `README.md`, corrige el archivo indicado y haz push.
+4. GitHub Actions valida el cambio y avanza automaticamente al siguiente paso.
 
-Los 20 pasos cubren:
+> No hagas un fork: usa **Use this template** para que los workflows de Actions queden activos desde el principio.
 
-| Paso | Tema |
-| ---- | ---- |
-| 1 | Command Injection en Python/FastAPI |
-| 2 | Path Traversal en Python/FastAPI |
-| 3 | SSTI en Python/FastAPI |
-| 4 | Insecure Deserialization en Python/FastAPI |
-| 5 | CORS misconfiguration en Python/FastAPI |
-| 6 | XXE en Java/Spring Boot |
-| 7 | Open Redirect en Java/Spring Boot |
-| 8 | Insecure Randomness en Java/Spring Boot |
-| 9 | Log Injection en Java/Spring Boot |
-| 10 | CSRF en Java/Spring Boot |
-| 11 | HTTP Header Injection en Go |
-| 12 | Race Condition TOCTOU en Go |
-| 13 | ReDoS en Go |
-| 14 | Timing Attack en Go |
-| 15 | Clickjacking en Go |
-| 16 | Prototype Pollution en TypeScript/NestJS |
-| 17 | Regex Injection en TypeScript/NestJS |
-| 18 | Sensitive Data in Logs en TypeScript/NestJS |
-| 19 | Hardcoded Secrets en TypeScript/NestJS |
-| 20 | Insecure File Upload en TypeScript/NestJS |
+## Los 30 pasos
 
-## Como funciona
+| Paso | Vulnerabilidad | Stack |
+| ---: | -------------- | ----- |
+| 1 | Command Injection | Python / FastAPI |
+| 2 | Path Traversal | Python / FastAPI |
+| 3 | Server-Side Template Injection (SSTI) | Python / FastAPI |
+| 4 | Insecure Deserialization | Python / FastAPI |
+| 5 | CORS Misconfiguration | Python / FastAPI |
+| 6 | XXE (XML External Entity) | Java / Spring Boot |
+| 7 | Open Redirect | Java / Spring Boot |
+| 8 | Insecure Randomness | Java / Spring Boot |
+| 9 | Log Injection | Java / Spring Boot |
+| 10 | CSRF | Java / Spring Boot |
+| 11 | HTTP Header Injection | Go / net-http |
+| 12 | Race Condition / TOCTOU | Go / net-http |
+| 13 | ReDoS | Go / net-http |
+| 14 | Timing Attack | Go / net-http |
+| 15 | Clickjacking | Go / net-http |
+| 16 | Prototype Pollution | TypeScript / NestJS |
+| 17 | Regex Injection | TypeScript / NestJS |
+| 18 | Sensitive Data in Logs | TypeScript / NestJS |
+| 19 | Hardcoded Secrets | TypeScript / NestJS |
+| 20 | Insecure File Upload | TypeScript / NestJS |
+| 21 | SQL Injection | Python / FastAPI |
+| 22 | NoSQL Injection | Python / FastAPI |
+| 23 | SSRF | Python / FastAPI |
+| 24 | XSS Reflejado | Java / Spring Boot |
+| 25 | XSS Almacenado | Java / Spring Boot |
+| 26 | IDOR / BOLA | Go / net-http |
+| 27 | JWT Algorithm Confusion | Go / net-http |
+| 28 | SSRF | TypeScript / NestJS |
+| 29 | Mass Assignment | TypeScript / NestJS |
+| 30 | LDAP Injection | TypeScript / NestJS |
 
-1. Haz un fork del repositorio.
-2. Ejecuta el workflow `Start Tutorial` en la pestaña Actions de tu fork.
-3. Lee el paso actual en `README.md`.
-4. Corrige el archivo indicado.
-5. Haz push y deja que el workflow del paso valide el cambio.
+## Estructura del repositorio
 
-## Archivos de instrucciones
-
-Los pasos se guardan en `.tutorial/steps/` y GitHub Actions copia el paso actual a `README.md`.
+```
+src/
+  python/     # Fuentes vulnerables Python/FastAPI
+  java/       # Fuentes vulnerables Java/Spring Boot
+  go/         # Fuentes vulnerables Go/net-http
+  typescript/ # Fuentes vulnerables TypeScript/NestJS
+.tutorial/
+  steps/      # Instrucciones de cada paso (markdown)
+  config.yml  # Configuracion del tutorial
+scripts/
+  tutorial.sh # Motor del tutorial (bash)
+.github/
+  workflows/  # 30 workflows de validacion + start + reset
+```
