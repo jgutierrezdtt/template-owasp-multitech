@@ -2,9 +2,13 @@ name: Start Tutorial
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
   start:
+    # Solo ejecutar si el tutorial no ha sido iniciado aun
+    if: hashFiles('.tutorial-started') == ''
     runs-on: ubuntu-latest
     permissions:
       contents: write
